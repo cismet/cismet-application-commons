@@ -330,7 +330,8 @@ public class AdvancedPluginBroker extends BasicPluginBroker implements AdvancedP
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 if (isInEditMode()) {
                     log.debug("Versuche aus Editiermodus heraus zu wechseln: ");
-                    int answer = JOptionPane.showConfirmDialog(getParentComponent(), "Wollen Sie die gemachten Änderungen verwerfen?", "Lagis Änderungen", JOptionPane.YES_NO_OPTION);
+                     //ToDo make generic
+                    int answer = JOptionPane.showConfirmDialog(getParentComponent(), "Wollen Sie die gemachten Änderungen verwerfen?", "Belis Änderungen", JOptionPane.YES_NO_OPTION);
                     if (answer == JOptionPane.NO_OPTION) {
                         return;
                     }
@@ -369,7 +370,8 @@ public class AdvancedPluginBroker extends BasicPluginBroker implements AdvancedP
                         boolean isValid = validateWidgets();
                         if (isValid) {
                             log.debug("Alle Änderungen sind valide: " + isValid);
-                            int answer = JOptionPane.showConfirmDialog(getParentComponent(), "Wollen Sie die gemachten Änderungen speichern?", "Lagis Änderungen", JOptionPane.YES_NO_OPTION);
+                            //ToDo make generic
+                            int answer = JOptionPane.showConfirmDialog(getParentComponent(), "Wollen Sie die gemachten Änderungen speichern?", "Belis Änderungen", JOptionPane.YES_NO_OPTION);
                             if (answer == JOptionPane.YES_OPTION) {
                                 //LagisBroker.getInstance().saveCurrentFlurstueck();
                                 fireSaveStarted();

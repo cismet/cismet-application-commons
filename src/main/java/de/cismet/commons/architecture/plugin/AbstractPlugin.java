@@ -967,7 +967,8 @@ private void mniNewsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         if (broker.isInEditMode()) {
             try {
                 log.debug("Application is in Editmode --> ask user if he wants to save");
-                int answer = JOptionPane.showConfirmDialog(this, "Wollen Sie die gemachten Änderungen speichern", "Lagis Änderungen", JOptionPane.YES_NO_OPTION);
+                //ToDo make generic
+                int answer = JOptionPane.showConfirmDialog(this, "Wollen Sie die gemachten Änderungen speichern", "Belis Änderungen", JOptionPane.YES_NO_OPTION);
                 if (answer == JOptionPane.YES_OPTION) {
                     boolean isValid = broker.validateWidgets();
                     if (isValid) {
@@ -1004,7 +1005,8 @@ private void mniNewsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                     break;
                 } catch (UnlockingNotSuccessfulException ex) {
                     Logger.getLogger(AbstractPlugin.class.getName()).log(Level.SEVERE, null, ex);
-                    int answer = JOptionPane.showConfirmDialog(this, "Sperre konnte nicht entfernt werden. Möchten Sie es erneut probieren?", "Lagis Änderungen", JOptionPane.YES_NO_OPTION);
+                    //ToDo make generic
+                    int answer = JOptionPane.showConfirmDialog(this, "Sperre konnte nicht entfernt werden. Möchten Sie es erneut probieren?", "Belis Änderungen", JOptionPane.YES_NO_OPTION);
                     if (answer == JOptionPane.NO_OPTION) {
                         break;
                     }
