@@ -7,7 +7,7 @@ package de.cismet.commons.architecture.widget;
 
 import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.geom.Polygon;
-import de.cismet.cismap.commons.features.DefaultWFSFeature;
+import de.cismet.cismap.commons.features.WFSFeature;
 import de.cismet.cismap.commons.features.Feature;
 import de.cismet.cismap.commons.features.FeatureCollectionEvent;
 import de.cismet.cismap.commons.features.FeatureCollectionListener;
@@ -968,10 +968,10 @@ private void cmdForegroundActionPerformed(java.awt.event.ActionEvent evt) {//GEN
                 //                        tblOverview.getSelectionModel().removeSelectionInterval(index,index);
                 //                    }
                 //                } else
-                if (cmdSelect.isSelected() && ((SelectionListener) o).getClickCount() > 1 && pf.getFeature() instanceof DefaultWFSFeature) {
-                    log.debug("DefaultWFSFeature selected");
+                if (cmdSelect.isSelected() && ((SelectionListener) o).getClickCount() > 1 && pf.getFeature() instanceof WFSFeature) {
+                    log.debug("WFSFeature selected");
                     //log.debug("test"+((DefaultWFSFeature)pf.getFeature()).getProperties());
-                    DefaultWFSFeature dwf = ((DefaultWFSFeature) pf.getFeature());
+                    WFSFeature dwf = ((WFSFeature) pf.getFeature());
 //                    if(LagisBroker.getInstance().isInEditMode()){
 //                        log.debug("Flurstück kann nicht gewechselt werden --> Editmode");
 //                        JOptionPane.showMessageDialog(LagisBroker.getInstance().getParentComponent(),"Das Flurstück kann nur gewechselt werden, wenn alle Änderungen gespeichert oder verworfen worden sind.","Wechseln nicht möglich",JOptionPane.WARNING_MESSAGE);
