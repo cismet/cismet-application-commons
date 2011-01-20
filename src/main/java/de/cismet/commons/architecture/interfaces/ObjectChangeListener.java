@@ -1,3 +1,10 @@
+/***************************************************
+*
+* cismet GmbH, Saarbruecken, Germany
+*
+*              ... and it just works.
+*
+****************************************************/
 /*
  * ChangeListener.java
  *
@@ -6,14 +13,22 @@
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
  */
-
 package de.cismet.commons.architecture.interfaces;
 
-
 /**
+ * DOCUMENT ME!
  *
- * @author Puhl
+ * @author   Puhl
+ * @version  $Revision$, $Date$
  */
 public interface ObjectChangeListener {
-    public void objectChanged(final Object changedObject);
+
+    //~ Methods ----------------------------------------------------------------
+
+    /**
+     * DOCUMENT ME!
+     *
+     * @param  changedObject  DOCUMENT ME!
+     */
+    void objectChanged(final Object changedObject);
 }

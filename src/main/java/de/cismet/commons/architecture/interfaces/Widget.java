@@ -1,3 +1,10 @@
+/***************************************************
+*
+* cismet GmbH, Saarbruecken, Germany
+*
+*              ... and it just works.
+*
+****************************************************/
 /*
  * Widget.java
  *
@@ -6,31 +13,92 @@
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
  */
-
 package de.cismet.commons.architecture.interfaces;
 
-import de.cismet.commons.architecture.validation.Validatable;
-import de.cismet.tools.configuration.Configurable;
 import java.beans.PropertyChangeListener;
+
 import java.util.ArrayList;
+
 import javax.swing.Icon;
 import javax.swing.JComponent;
 
+import de.cismet.commons.architecture.validation.Validatable;
+
+import de.cismet.tools.configuration.Configurable;
+
 /**
+ * DOCUMENT ME!
  *
- * @author Puhl
+ * @author   Puhl
+ * @version  $Revision$, $Date$
  */
-    public interface Widget extends ObjectChangeListener,Clearable,Editable,Validatable,Refreshable,EntitySaver,Configurable,PropertyChangeListener {    
-    
-    public String getWidgetName();
-    public void setWidgetName(final String widgetName);
-    public Icon getWidgetIcon();
-    public void setWidgetIcon(final String iconName);    
-    public boolean isCoreWidget();
-    public void setIsCoreWidget(final boolean isCoreWidget);
-    public boolean isReadOnlyWidget();
-    public void setReadOnlyWidget(final boolean isReadOnlyWidget);
-    public void updateUIPropertyChange();
-    //ToDo should be in seperate interface or in a deeper layer like Layoutet Widget
-    public ArrayList<JComponent> getCustomButtons();
+public interface Widget extends ObjectChangeListener,
+    Clearable,
+    Editable,
+    Validatable,
+    Refreshable,
+    EntitySaver,
+    Configurable,
+    PropertyChangeListener {
+
+    //~ Methods ----------------------------------------------------------------
+
+    /**
+     * DOCUMENT ME!
+     *
+     * @return  DOCUMENT ME!
+     */
+    String getWidgetName();
+    /**
+     * DOCUMENT ME!
+     *
+     * @param  widgetName  DOCUMENT ME!
+     */
+    void setWidgetName(final String widgetName);
+    /**
+     * DOCUMENT ME!
+     *
+     * @return  DOCUMENT ME!
+     */
+    Icon getWidgetIcon();
+    /**
+     * DOCUMENT ME!
+     *
+     * @param  iconName  DOCUMENT ME!
+     */
+    void setWidgetIcon(final String iconName);
+    /**
+     * DOCUMENT ME!
+     *
+     * @return  DOCUMENT ME!
+     */
+    boolean isCoreWidget();
+    /**
+     * DOCUMENT ME!
+     *
+     * @param  isCoreWidget  DOCUMENT ME!
+     */
+    void setIsCoreWidget(final boolean isCoreWidget);
+    /**
+     * DOCUMENT ME!
+     *
+     * @return  DOCUMENT ME!
+     */
+    boolean isReadOnlyWidget();
+    /**
+     * DOCUMENT ME!
+     *
+     * @param  isReadOnlyWidget  DOCUMENT ME!
+     */
+    void setReadOnlyWidget(final boolean isReadOnlyWidget);
+    /**
+     * DOCUMENT ME!
+     */
+    void updateUIPropertyChange();
+    /**
+     * ToDo should be in seperate interface or in a deeper layer like Layoutet Widget.
+     *
+     * @return  DOCUMENT ME!
+     */
+    ArrayList<JComponent> getCustomButtons();
 }

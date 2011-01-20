@@ -1,3 +1,10 @@
+/***************************************************
+*
+* cismet GmbH, Saarbruecken, Germany
+*
+*              ... and it just works.
+*
+****************************************************/
 /*
  * Editable.java
  *
@@ -6,14 +13,22 @@
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
  */
-
 package de.cismet.commons.architecture.interfaces;
 
 /**
+ * DOCUMENT ME!
  *
- * @author Puhl
+ * @author   Puhl
+ * @version  $Revision$, $Date$
  */
 public interface Editable {
-    //ToDo rename if a component is editable dosen't mean automatic that it is a widget
-   public void setWidgetEditable(final boolean isEditable);   
+
+    //~ Methods ----------------------------------------------------------------
+
+    /**
+     * ToDo rename if a component is editable dosen't mean automatic that it is a widget.
+     *
+     * @param  isEditable  DOCUMENT ME!
+     */
+    void setWidgetEditable(final boolean isEditable);
 }
