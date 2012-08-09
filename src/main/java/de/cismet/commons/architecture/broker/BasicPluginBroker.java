@@ -855,19 +855,18 @@ public class BasicPluginBroker implements PluginBroker {
     // log.info("Es wurden nur neue Verwaltungsbereiche angelegt: " + newBereiche.size()); for (Verwaltungsbereich
     // currentBereich : newBereiche) { try { //                                Message newMessage = new Message(); //
     // newMessage.setMessageReceiver(Message.RECEIVER_VERWALTUNGSSTELLE); //
-    // newMessage.setMessageType(Message.VERWALTUNGSBEREICH_NEW); //
-    // Vector messageObjects = new Vector(); //                                messageObjects.add(currentBereich); //
-    // newMessage.setMessageObjects(messageObjects); //TODO duplicated code see
-    // checkofdifferences VerwaltendeDienststelle currentDienstelle = currentBereich.getDienststelle(); if
-    // (currentDienstelle != null) { messages.add(Message.createNewMessage(Message.RECEIVER_VERWALTUNGSSTELLE,
-    // Message.VERWALTUNGSBEREICH_NEW, currentDienstelle)); } else { log.debug("neuer Verwaltungsbereich angelegt ohne
-    // Dienstellenzuordnung"); } } catch (Exception ex) { log.error("Fehler beim prüfen eines neuen
-    // Verwaltungsbereichs", ex); messages.add(Message.createNewMessage(Message.RECEIVER_ADMIN,
-    // Message.VERWALTUNGSBEREICH_ERROR, "Es wurden nur neue Flurstücke angelegt. Fehler beim Prüfen eines
-    // Verwaltungsgebrauchs", ex, currentBereich)); //TODO Nachricht an Benutzer } } } else if ((newBereiche == null ||
-    // newBereiche.size() == 0)) { log.info("Es wurden alle alten Verwaltungsbereiche gelöscht: " +
-    // oldBereiche.size()); for (Verwaltungsbereich currentBereich : oldBereiche) { try { //
-    // Message newMessage = new Message(); //
+    // newMessage.setMessageType(Message.VERWALTUNGSBEREICH_NEW); // Vector messageObjects = new Vector(); //
+    // messageObjects.add(currentBereich); // newMessage.setMessageObjects(messageObjects);
+    // //TODO duplicated code see checkofdifferences VerwaltendeDienststelle currentDienstelle =
+    // currentBereich.getDienststelle(); if (currentDienstelle != null) {
+    // messages.add(Message.createNewMessage(Message.RECEIVER_VERWALTUNGSSTELLE, Message.VERWALTUNGSBEREICH_NEW,
+    // currentDienstelle)); } else { log.debug("neuer Verwaltungsbereich angelegt ohne Dienstellenzuordnung"); } }
+    // catch (Exception ex) { log.error("Fehler beim prüfen eines neuen Verwaltungsbereichs", ex);
+    // messages.add(Message.createNewMessage(Message.RECEIVER_ADMIN, Message.VERWALTUNGSBEREICH_ERROR, "Es wurden nur
+    // neue Flurstücke angelegt. Fehler beim Prüfen eines Verwaltungsgebrauchs", ex, currentBereich)); //TODO
+    // Nachricht an Benutzer } } } else if ((newBereiche == null || newBereiche.size() == 0)) { log.info("Es wurden
+    // alle alten Verwaltungsbereiche gelöscht: " + oldBereiche.size()); for (Verwaltungsbereich currentBereich :
+    // oldBereiche) { try { // Message newMessage = new Message(); //
     // newMessage.setMessageReceiver(Message.RECEIVER_VERWALTUNGSSTELLE); //
     // newMessage.setMessageType(Message.VERWALTUNGSBEREICH_DELETED); //                                Vector
     // messageObjects = new Vector(); //                                messageObjects.add(currentBereich); //
@@ -880,40 +879,40 @@ public class BasicPluginBroker implements PluginBroker {
     // sowohl alte wie neue Verwaltungsbereiche -> abgleich"); Vector modDienststellen = new Vector(); Vector
     // addedDienststellen = new Vector(); Vector deletedDienststellen = new Vector(); Vector<Verwaltungsbereich>
     // oldBereicheVector = new Vector(oldBereiche); Vector<Verwaltungsbereich> newBereicheVector = new
-    // Vector(newBereiche); for (Verwaltungsbereich currentBereich : newBereiche) { try { if (currentBereich.getId() ==
-    // null && !oldBereiche.contains(currentBereich)) { log.info("Es wurden ein neuer Verwaltungsbereich angelegt: " +
-    // currentBereich); //TODO duplicated code see checkofdifferences VerwaltendeDienststelle currentDienstelle =
+    // Vector(newBereiche); for (Verwaltungsbereich currentBereich : newBereiche) { try { if (currentBereich.getId()
+    // == null && !oldBereiche.contains(currentBereich)) { log.info("Es wurden ein neuer Verwaltungsbereich angelegt:
+    // " + currentBereich); //TODO duplicated code see checkofdifferences VerwaltendeDienststelle currentDienstelle =
     // currentBereich.getDienststelle(); if (currentDienstelle != null) {
     // addedDienststellen.add(Message.createNewMessage(Message.RECEIVER_VERWALTUNGSSTELLE,
-    // Message.VERWALTUNGSBEREICH_NEW, currentDienstelle)); } else { log.debug("neuer Verwaltungsbereich angelegt ohne
-    // Dienstellenzuordnung"); } } else if (currentBereich.getId() != null && oldBereiche.contains(currentBereich)) {
-    // int index = oldBereicheVector.indexOf(currentBereich); log.info("Verwaltungsbereich war schon in Datenbank: " +
-    // currentBereich + " index in altem Datenbestand=" + index); Verwaltungsbereich oldBereich =
-    // oldBereicheVector.get(index); VerwaltendeDienststelle oldDienststelle = oldBereich.getDienststelle();
-    // VerwaltendeDienststelle newDienststelle = currentBereich.getDienststelle(); if (oldDienststelle != null &&
-    // newDienststelle != null) { log.debug("AlteDienstelle=" + oldDienststelle + " NeueDienststelle=" +
-    // newDienststelle); if (oldDienststelle.equals(newDienststelle)) { log.debug("Dienstelle des Verwaltungsbereich
-    // ist gleich geblieben"); } else { log.debug("Dienstelle des Verwaltungsbereichs hat sich geändert");
-    // modDienststellen.add(Message.createNewMessage(Message.RECEIVER_VERWALTUNGSSTELLE,
-    // Message.VERWALTUNGSBEREICH_CHANGED, oldDienststelle, newDienststelle)); } } else if (oldDienststelle == null) {
-    // log.debug("Einem vorhandenen Verwaltungsbereich wurde eine Dienstelle zugeordnet");
+    // Message.VERWALTUNGSBEREICH_NEW, currentDienstelle)); } else { log.debug("neuer Verwaltungsbereich angelegt
+    // ohne Dienstellenzuordnung"); } } else if (currentBereich.getId() != null &&
+    // oldBereiche.contains(currentBereich)) { int index = oldBereicheVector.indexOf(currentBereich);
+    // log.info("Verwaltungsbereich war schon in Datenbank: " + currentBereich + " index in altem Datenbestand=" +
+    // index); Verwaltungsbereich oldBereich = oldBereicheVector.get(index); VerwaltendeDienststelle oldDienststelle
+    // = oldBereich.getDienststelle(); VerwaltendeDienststelle newDienststelle = currentBereich.getDienststelle(); if
+    // (oldDienststelle != null && newDienststelle != null) { log.debug("AlteDienstelle=" + oldDienststelle + "
+    // NeueDienststelle=" + newDienststelle); if (oldDienststelle.equals(newDienststelle)) { log.debug("Dienstelle
+    // des Verwaltungsbereich ist gleich geblieben"); } else { log.debug("Dienstelle des Verwaltungsbereichs hat sich
+    // geändert"); modDienststellen.add(Message.createNewMessage(Message.RECEIVER_VERWALTUNGSSTELLE,
+    // Message.VERWALTUNGSBEREICH_CHANGED, oldDienststelle, newDienststelle)); } } else if (oldDienststelle == null)
+    // { log.debug("Einem vorhandenen Verwaltungsbereich wurde eine Dienstelle zugeordnet");
     // addedDienststellen.add(Message.createNewMessage(Message.RECEIVER_VERWALTUNGSSTELLE,
     // Message.VERWALTUNGSBEREICH_NEW, newDienststelle)); } else { log.debug("Eine vorhandene Dienstellenzuordnung
     // wurde entfernt"); deletedDienststellen.add(Message.createNewMessage(Message.RECEIVER_VERWALTUNGSSTELLE,
     // Message.VERWALTUNGSBEREICH_DELETED, oldDienststelle)); } oldBereicheVector.remove(currentBereich); } else if
     // (currentBereich.getId() != null) { log.error("Verwaltungsbereich hat eine ID, existiert aber nicht in altem
     // Datenbestand --> equals funktioniert nicht"); messages.add(Message.createNewMessage(Message.RECEIVER_ADMIN,
-    // Message.VERWALTUNGSBEREICH_ERROR, "Verwaltungsbereich hat eine ID, existiert aber nicht in altem Datenbestand",
-    // currentBereich)); //TODO Nachricht an Benutzer } else { log.fatal("nichtbehandelter fall currentBereich: " +
-    // currentBereich); messages.add(Message.createNewMessage(Message.RECEIVER_ADMIN, Message.VERWALTUNGSBEREICH_ERROR,
-    // "Ein bei der automatischen Generierung von Emails nicht behandelter Fall ist aufgetreten", currentBereich));
-    // //TODO Nachricht an Benutzer } } catch (Exception ex) { log.error("Fehler beim abgeleich von alten und neuen
-    // Verwaltungsbereichen für die emailbenachrichtigung", ex);
+    // Message.VERWALTUNGSBEREICH_ERROR, "Verwaltungsbereich hat eine ID, existiert aber nicht in altem
+    // Datenbestand", currentBereich)); //TODO Nachricht an Benutzer } else { log.fatal("nichtbehandelter fall
+    // currentBereich: " + currentBereich); messages.add(Message.createNewMessage(Message.RECEIVER_ADMIN,
+    // Message.VERWALTUNGSBEREICH_ERROR, "Ein bei der automatischen Generierung von Emails nicht behandelter Fall ist
+    // aufgetreten", currentBereich)); //TODO Nachricht an Benutzer } } catch (Exception ex) { log.error("Fehler beim
+    // abgeleich von alten und neuen Verwaltungsbereichen für die emailbenachrichtigung", ex);
     // messages.add(Message.createNewMessage(Message.RECEIVER_ADMIN, Message.VERWALTUNGSBEREICH_ERROR, "Es gab einen
-    // Fehler beim abgleichen alter und neuer Verwaltungsbereiche", ex, currentBereich)); //TODO Nachricht an Benutzer
-    // } } log.debug("gelöschte Verwaltungsbereiche erfassen"); for (Verwaltungsbereich currentBereich :
-    // oldBereicheVector) { try { if (!newBereiche.contains(currentBereich)) { log.debug("Verwaltungsbereich existiert
-    // nicht mehr in neuem Datenbestand: " + currentBereich); VerwaltendeDienststelle oldDienststelle =
+    // Fehler beim abgleichen alter und neuer Verwaltungsbereiche", ex, currentBereich)); //TODO Nachricht an
+    // Benutzer } } log.debug("gelöschte Verwaltungsbereiche erfassen"); for (Verwaltungsbereich currentBereich :
+    // oldBereicheVector) { try { if (!newBereiche.contains(currentBereich)) { log.debug("Verwaltungsbereich
+    // existiert nicht mehr in neuem Datenbestand: " + currentBereich); VerwaltendeDienststelle oldDienststelle =
     // currentBereich.getDienststelle(); if (oldDienststelle == null) { log.debug("Für Verwaltungsbereich wurde keine
     // Dienstelle zugeordnet"); } else { log.debug("Verwaltungsbereich hatte eine Dienstelle");
     // deletedDienststellen.add(Message.createNewMessage(Message.RECEIVER_VERWALTUNGSSTELLE,
@@ -923,8 +922,8 @@ public class BasicPluginBroker implements PluginBroker {
     // messages.addAll(addedDienststellen); messages.addAll(modDienststellen); messages.addAll(deletedDienststellen);
     // log.debug("Nachrichten insgesamt: " + messages.size() + "davon sind neue Dienstellen=" +
     // addedDienststellen.size() + " gelöschte=" + deletedDienststellen.size() + " modifizierte=" +
-    // modDienststellen.size()); } } catch (Exception ex) { //TODO what doing by generall failure sending the other and
-    // the failure ? log.fatal("Fehler bei der email benachrichtigung", ex);
+    // modDienststellen.size()); } } catch (Exception ex) { //TODO what doing by generall failure sending the other
+    // and the failure ? log.fatal("Fehler bei der email benachrichtigung", ex);
     // messages.add(Message.createNewMessage(Message.RECEIVER_ADMIN, Message.GENERAL_ERROR, "LagIS - Fehler beim
     // erstellen der automatischen Emails", ex)); //TODO Nachricht an Benutzer }
     // EJBroker.getInstance().modifyFlurstueck(currentFlurstueck); //TODO only sending if the flurstück is saved
@@ -959,10 +958,9 @@ public class BasicPluginBroker implements PluginBroker {
     // msg.setRecipients(javax.mail.Message.RecipientType.TO, InternetAddress.parse(oldDienststelle.getEmailAdresse()
     // + "," + newDienststelle.getEmailAdresse(), false)); msg.setSubject("Lagis - Änderung Zuständigkeitsbereiche");
     // //TODO mit replacements arbeiten config file //                                msg.setText("Bei dieser Mail
-    // handelt es sich um eine automatisch von LagIS erstellte Benachrichtigung.\n\n" + //
-    // "Folgendener Fehler ist zur Laufzeit aufgetreten:\n\n" + //
-    // messageObjects.get(0)+"n\n" + //                                        "Zugehöriger Stacktrace:\n\n" + //
-    // messageObjects.get(1)); msg.setText("Bei dem Flurstück:\n" +
+    // handelt es sich um eine automatisch von LagIS erstellte Benachrichtigung.\n\n" + // "Folgendener Fehler ist
+    // zur Laufzeit aufgetreten:\n\n" + // messageObjects.get(0)+"n\n" + //
+    // "Zugehöriger Stacktrace:\n\n" + // messageObjects.get(1)); msg.setText("Bei dem Flurstück:\n" +
     // currentFlurstueck + "\n" + "wurde die Zuordnung zur unterhaltenden Dienststelle geändert."); } else if
     // (currentMessage.getMessageType() == Message.VERWALTUNGSBEREICH_NEW) { Vector messageObjects =
     // currentMessage.getMessageObjects(); VerwaltendeDienststelle newDienststelle = (VerwaltendeDienststelle)

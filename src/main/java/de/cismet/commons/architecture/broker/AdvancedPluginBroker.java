@@ -730,8 +730,8 @@ public class AdvancedPluginBroker extends BasicPluginBroker implements AdvancedP
                         log.error("Exception in Highlighter: ", ex);
                     }
                     return false;
-                    // ReBe r = model.get//tableModel.getReBeAtRow(modelIndex);
-                    // return r != null && r.getGeometry() == null;
+                        // ReBe r = model.get//tableModel.getReBeAtRow(modelIndex);
+                        // return r != null && r.getGeometry() == null;
                 }
             };
 

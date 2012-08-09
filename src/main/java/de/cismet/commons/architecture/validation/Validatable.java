@@ -22,7 +22,7 @@ import java.awt.Component;
  */
 public interface Validatable {
 
-    //~ Static fields/initializers ---------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     int VALID = 0;
     int WARNING = 1;
