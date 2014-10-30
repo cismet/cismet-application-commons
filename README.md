@@ -1,4 +1,4 @@
-cismet-application-commons
+cismet-application-commons [![Build Status](http://ci.cismet.de/buildStatus/icon?job=cismet-application-commons)](https://ci.cismet.de/job/cismet-application-commons/)
 ==========================
 
 cismet-application-commons contains commons classes for cids applications.
