@@ -1310,7 +1310,7 @@ public class MapWidget extends DefaultWidget implements FeatureCollectionListene
             final PNode p = null;
             PFeature pf = null;
             if (o instanceof SelectionListener) {
-                pf = ((SelectionListener)o).getSelectedPFeature();
+                pf = ((SelectionListener)o).getAffectedPFeature();
                 //
                 // if (pf!=null && pf.getFeature() instanceof Flaeche|| pf.getFeature() instanceof PureNewFeature) {
                 // if (((DefaultFeatureCollection)mappingComp.getFeatureCollection()).isSelected(pf.getFeature())) {
