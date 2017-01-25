@@ -24,8 +24,6 @@ import java.util.Date;
 import javax.swing.JDialog;
 import javax.swing.table.DefaultTableModel;
 
-import de.cismet.belisEE.entity.Lock;
-
 /**
  * DOCUMENT ME!
  *

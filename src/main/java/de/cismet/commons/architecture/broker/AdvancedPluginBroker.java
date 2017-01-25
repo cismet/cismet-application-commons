@@ -45,8 +45,6 @@ import de.cismet.commons.architecture.interfaces.Widget;
 import de.cismet.commons.architecture.layout.LayoutManager;
 import de.cismet.commons.architecture.login.LoginManager;
 
-import de.cismet.commons.server.entity.GeoBaseEntity;
-
 import de.cismet.tools.configuration.ConfigurationManager;
 
 //Layout,Configuration,Toolbar,Decoration
@@ -705,41 +703,6 @@ public class AdvancedPluginBroker extends BasicPluginBroker implements AdvancedP
         return ttable;
     }
 
-    /**
-     * DOCUMENT ME!
-     *
-     * @param   ttable  DOCUMENT ME!
-     *
-     * @return  DOCUMENT ME!
-     */
-    public JXTreeTable decorateWithNoGeometryHighlighter(final JXTreeTable ttable) {
-        final HighlightPredicate noGeometryPredicate = new HighlightPredicate() {
-
-                @Override
-                public boolean isHighlighted(final Component renderer, final ComponentAdapter componentAdapter) {
-                    // int displayedIndex = componentAdapter.row;
-                    // nt modelIndex = ((JXTreeTable) ttable).getFilters().convertRowIndexToModel(displayedIndex);
-                    try {
-                        final Object userObj =
-                            ((AbstractMutableTreeTableNode)ttable.getPathForRow(componentAdapter.row)
-                                        .getLastPathComponent()).getUserObject();
-                        if ((userObj != null) && (userObj instanceof GeoBaseEntity)) {
-                            return ((GeoBaseEntity)userObj).getGeometry() == null;
-                        }
-                    } catch (Exception ex) {
-                        log.error("Exception in Highlighter: ", ex);
-                    }
-                    return false;
-                        // ReBe r = model.get//tableModel.getReBeAtRow(modelIndex);
-                        // return r != null && r.getGeometry() == null;
-                }
-            };
-
-        final Highlighter noGeometryHighlighter = new ColorHighlighter(noGeometryPredicate, this.gray, null);
-        // ((JXTable) tReBe).setHighlighters(LagisBroker.ALTERNATE_ROW_HIGHLIGHTER,noGeometryHighlighter);
-        ttable.addHighlighter(noGeometryHighlighter);
-        return ttable;
-    }
     /**
      * ToDo is overwritten in the client should be changed !!!
      */
