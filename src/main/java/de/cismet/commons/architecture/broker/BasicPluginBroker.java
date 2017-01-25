@@ -856,18 +856,17 @@ public class BasicPluginBroker implements PluginBroker {
     // currentBereich : newBereiche) { try { //                                Message newMessage = new Message(); //
     // newMessage.setMessageReceiver(Message.RECEIVER_VERWALTUNGSSTELLE); //
     // newMessage.setMessageType(Message.VERWALTUNGSBEREICH_NEW); // Vector messageObjects = new Vector(); //
-    // messageObjects.add(currentBereich); // newMessage.setMessageObjects(messageObjects);
-    // //TODO duplicated code see checkofdifferences VerwaltendeDienststelle currentDienstelle =
-    // currentBereich.getDienststelle(); if (currentDienstelle != null) {
-    // messages.add(Message.createNewMessage(Message.RECEIVER_VERWALTUNGSSTELLE, Message.VERWALTUNGSBEREICH_NEW,
-    // currentDienstelle)); } else { log.debug("neuer Verwaltungsbereich angelegt ohne Dienstellenzuordnung"); } }
-    // catch (Exception ex) { log.error("Fehler beim prüfen eines neuen Verwaltungsbereichs", ex);
-    // messages.add(Message.createNewMessage(Message.RECEIVER_ADMIN, Message.VERWALTUNGSBEREICH_ERROR, "Es wurden nur
-    // neue Flurstücke angelegt. Fehler beim Prüfen eines Verwaltungsgebrauchs", ex, currentBereich)); //TODO
-    // Nachricht an Benutzer } } } else if ((newBereiche == null || newBereiche.size() == 0)) { log.info("Es wurden
-    // alle alten Verwaltungsbereiche gelöscht: " + oldBereiche.size()); for (Verwaltungsbereich currentBereich :
-    // oldBereiche) { try { // Message newMessage = new Message(); //
-    // newMessage.setMessageReceiver(Message.RECEIVER_VERWALTUNGSSTELLE); //
+    // messageObjects.add(currentBereich); // newMessage.setMessageObjects(messageObjects); //TODO duplicated code
+    // see checkofdifferences VerwaltendeDienststelle currentDienstelle = currentBereich.getDienststelle(); if
+    // (currentDienstelle != null) { messages.add(Message.createNewMessage(Message.RECEIVER_VERWALTUNGSSTELLE,
+    // Message.VERWALTUNGSBEREICH_NEW, currentDienstelle)); } else { log.debug("neuer Verwaltungsbereich angelegt
+    // ohne Dienstellenzuordnung"); } } catch (Exception ex) { log.error("Fehler beim prüfen eines neuen
+    // Verwaltungsbereichs", ex); messages.add(Message.createNewMessage(Message.RECEIVER_ADMIN,
+    // Message.VERWALTUNGSBEREICH_ERROR, "Es wurden nur neue Flurstücke angelegt. Fehler beim Prüfen eines
+    // Verwaltungsgebrauchs", ex, currentBereich)); //TODO Nachricht an Benutzer } } } else if ((newBereiche == null
+    // || newBereiche.size() == 0)) { log.info("Es wurden alle alten Verwaltungsbereiche gelöscht: " +
+    // oldBereiche.size()); for (Verwaltungsbereich currentBereich : oldBereiche) { try { // Message newMessage = new
+    // Message(); // newMessage.setMessageReceiver(Message.RECEIVER_VERWALTUNGSSTELLE); //
     // newMessage.setMessageType(Message.VERWALTUNGSBEREICH_DELETED); //                                Vector
     // messageObjects = new Vector(); //                                messageObjects.add(currentBereich); //
     // newMessage.setMessageObjects(messageObjects);
@@ -959,14 +958,14 @@ public class BasicPluginBroker implements PluginBroker {
     // + "," + newDienststelle.getEmailAdresse(), false)); msg.setSubject("Lagis - Änderung Zuständigkeitsbereiche");
     // //TODO mit replacements arbeiten config file //                                msg.setText("Bei dieser Mail
     // handelt es sich um eine automatisch von LagIS erstellte Benachrichtigung.\n\n" + // "Folgendener Fehler ist
-    // zur Laufzeit aufgetreten:\n\n" + // messageObjects.get(0)+"n\n" + //
-    // "Zugehöriger Stacktrace:\n\n" + // messageObjects.get(1)); msg.setText("Bei dem Flurstück:\n" +
-    // currentFlurstueck + "\n" + "wurde die Zuordnung zur unterhaltenden Dienststelle geändert."); } else if
-    // (currentMessage.getMessageType() == Message.VERWALTUNGSBEREICH_NEW) { Vector messageObjects =
-    // currentMessage.getMessageObjects(); VerwaltendeDienststelle newDienststelle = (VerwaltendeDienststelle)
-    // messageObjects.get(0); //TODO OPTIMIZE if (newDienststelle.getEmailAdresse() == null) { throw new
-    // Exception("Eine Emailaddresse eines Verwaltungsbereichs ist nicht gesetzt: " +
-    // newDienststelle.getEmailAdresse()); } msg.setRecipients(javax.mail.Message.RecipientType.TO,
+    // zur Laufzeit aufgetreten:\n\n" + // messageObjects.get(0)+"n\n" + // "Zugehöriger Stacktrace:\n\n" + //
+    // messageObjects.get(1)); msg.setText("Bei dem Flurstück:\n" + currentFlurstueck + "\n" + "wurde die Zuordnung
+    // zur unterhaltenden Dienststelle geändert."); } else if (currentMessage.getMessageType() ==
+    // Message.VERWALTUNGSBEREICH_NEW) { Vector messageObjects = currentMessage.getMessageObjects();
+    // VerwaltendeDienststelle newDienststelle = (VerwaltendeDienststelle) messageObjects.get(0); //TODO OPTIMIZE if
+    // (newDienststelle.getEmailAdresse() == null) { throw new Exception("Eine Emailaddresse eines
+    // Verwaltungsbereichs ist nicht gesetzt: " + newDienststelle.getEmailAdresse()); }
+    // msg.setRecipients(javax.mail.Message.RecipientType.TO,
     // InternetAddress.parse(newDienststelle.getEmailAdresse(), false)); msg.setSubject("Lagis - Änderung
     // Zuständigkeitsbereiche"); msg.setText("Bei dem Flurstück:\n" + currentFlurstueck + "\n" + "wurde die Zuordnung
     // zur unterhaltenden Dienststelle hinzugefügt."); } else if (currentMessage.getMessageType() ==
