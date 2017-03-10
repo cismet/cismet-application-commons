@@ -147,36 +147,31 @@
             <scope>compile</scope>
             <type>jar</type>
         </dependency>
-        <!-- END: managed dependencies -->
-
         <dependency>
             <groupId>edu.umd</groupId>
             <artifactId>piccolo</artifactId>
-            <version>1.2</version>
             <scope>compile</scope>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.swinglabs</groupId>
             <artifactId>swing-layout</artifactId>
-            <version>1.0.3</version>
             <scope>compile</scope>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>net.infonode.docking</groupId>
             <artifactId>docking</artifactId>
-            <version>1.5.0</version>
             <scope>compile</scope>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>edu.umd</groupId>
             <artifactId>piccolox</artifactId>
-            <version>1.2</version>
             <scope>compile</scope>
             <type>jar</type>
         </dependency>
+        <!-- END: managed dependencies -->
     </dependencies>
     
     <build>
