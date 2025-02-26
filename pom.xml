@@ -14,7 +14,7 @@
     <groupId>de.cismet.commons</groupId>
     <artifactId>cismet-application-commons</artifactId>
     <packaging>jar</packaging>
-    <version>8.1-SNAPSHOT</version>
+    <version>9.1-SNAPSHOT</version>
 
     <name>cismet-application-commons</name>
     <description>!!! description pending !!!</description>
