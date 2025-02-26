@@ -8,13 +8,13 @@
     <parent>
         <groupId>de.cismet.cids</groupId>
         <artifactId>cids-parent</artifactId>
-        <version>8.0</version>
+        <version>9.0</version>
     </parent>
 
     <groupId>de.cismet.commons</groupId>
     <artifactId>cismet-application-commons</artifactId>
     <packaging>jar</packaging>
-    <version>8.0</version>
+    <version>9.0</version>
 
     <name>cismet-application-commons</name>
     <description>!!! description pending !!!</description>
@@ -23,7 +23,7 @@
         <connection>https://github.com/cismet/cismet-application-commons.git</connection>
         <developerConnection>scm:git:git@github.com:cismet/cismet-application-commons.git</developerConnection>
         <url>https://github.com/cismet/cismet-application-commons</url>
-        <tag>v8.0</tag>
+        <tag>v9.0</tag>
     </scm>
 
     <ciManagement>
@@ -42,7 +42,7 @@
             <dependency>
                 <groupId>de.cismet</groupId>
                 <artifactId>cismet-ext-bom</artifactId>
-                <version>8.0</version>
+                <version>9.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -51,42 +51,42 @@
             <dependency>
                 <groupId>de.cismet.cids.navigator</groupId>
                 <artifactId>cids-navigator</artifactId>
-                <version>8.0</version>
+                <version>9.0</version>
                 <scope>compile</scope>
                 <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>de.cismet.commons</groupId>
                 <artifactId>cismet-commons</artifactId>
-                <version>8.0</version>
+                <version>9.0</version>
                 <scope>compile</scope>
                 <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>de.cismet.commons</groupId>
                 <artifactId>cismet-gui-commons</artifactId>
-                <version>8.0</version>
+                <version>9.0</version>
                 <scope>compile</scope>
                 <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>de.cismet.commons</groupId>
                 <artifactId>cismap-commons</artifactId>
-                <version>8.0</version>
+                <version>9.0</version>
                 <scope>compile</scope>
                 <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>de.cismet.custom</groupId>
                 <artifactId>beansbinding</artifactId>
-                <version>8.0</version>
+                <version>9.0</version>
                 <scope>compile</scope>
                 <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>de.cismet.cids</groupId>
                 <artifactId>cids-server</artifactId>
-                <version>8.0</version>
+                <version>9.0</version>
                 <scope>compile</scope>
                 <type>jar</type>
             </dependency>
@@ -136,8 +136,20 @@
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <scope>compile</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <scope>compile</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
             <scope>compile</scope>
             <type>jar</type>
         </dependency>

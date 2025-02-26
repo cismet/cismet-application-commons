@@ -17,7 +17,11 @@ package de.cismet.commons.architecture.broker;
 
 import com.vividsolutions.jts.geom.Geometry;
 
-import org.apache.log4j.PropertyConfigurator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.LoggerContext;
+import org.apache.logging.log4j.core.config.ConfigurationSource;
+import org.apache.logging.log4j.core.config.Configurator;
+import org.apache.logging.log4j.core.config.xml.XmlConfiguration;
 
 import org.jdesktop.swingx.decorator.ColorHighlighter;
 import org.jdesktop.swingx.decorator.CompoundHighlighter;
@@ -32,6 +36,8 @@ import java.awt.Frame;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+
+import java.io.InputStream;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -1361,7 +1367,11 @@ public class BasicPluginBroker implements PluginBroker {
      */
     private void initLog4J() {
         try {
-            PropertyConfigurator.configure(BasicPluginBroker.class.getResource(loggingProperties));
+            try(final InputStream configStream = BasicPluginBroker.class.getResourceAsStream(loggingProperties)) {
+                final ConfigurationSource source = new ConfigurationSource(configStream);
+                final LoggerContext context = (LoggerContext)LogManager.getContext(false);
+                context.start(new XmlConfiguration(context, source)); // Apply new configuration
+            }
             log.info("Log4J System erfolgreich konfiguriert");
         } catch (Exception ex) {
             System.err.println("Fehler bei Log4J Initialisierung");
